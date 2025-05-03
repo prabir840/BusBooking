@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookings</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c9f5f1);
+        color: #333;
+        padding: 20px;
+      }
+
+      header {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      header h1 {
+        font-size: 24px;
+        color: #333;
+      }
+
+      .bookings-container {
+        max-width: 800px;
+        margin: auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .booking-card {
+        background: linear-gradient(135deg, #92b3c1, #7acbdd);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .booking-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .booking-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .booking-card p {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .back-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #7acbdd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: #92b3c1;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .modal-content h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .modal-content p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      .close-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #7acbdd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .close-btn:hover {
+        background: #92b3c1;
+      }
+    </style>
+    <script>
+      function showReceipt(bookingDetails) {
+        const modal = document.getElementById("receipt-modal");
+        const modalContent = document.getElementById("modal-content");
+
+        modalContent.innerHTML = `
+          <h2>Booking Receipt</h2>
+          <p><strong>Route:</strong> ${bookingDetails.route}</p>
+          <p><strong>Date:</strong> ${bookingDetails.date}</p>
+          <p><strong>Time:</strong> ${bookingDetails.time}</p>
+          <p><strong>Seat:</strong> ${bookingDetails.seat}</p>
+          <p><strong>Price:</strong> ₹${bookingDetails.price}</p>
+          <button class="close-btn" onclick="closeModal()">Close</button>
+        `;
+
+        modal.style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("receipt-modal").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>My Bookings</h1>
+    </header>
+    <div class="bookings-container">
+      <div class="booking-card" onclick="showReceipt({route: 'Mumbai → Pune', date: '2025-12-01', time: '10:00 AM', seat: 'A1', price: 300})">
+        <h3>Mumbai → Pune</h3>
+        <p>Date: 2025-12-01</p>
+        <p>Time: 10:00 AM</p>
+        <p>Seat: A1</p>
+        <p>Price: ₹300</p>
+      </div>
+      <div class="booking-card" onclick="showReceipt({route: 'Delhi → Agra', date: '2025-12-05', time: '2:00 PM', seat: 'B5', price: 400})">
+        <h3>Delhi → Agra</h3>
+        <p>Date: 2025-12-05</p>
+        <p>Time: 2:00 PM</p>
+        <p>Seat: B5</p>
+        <p>Price: ₹400</p>
+      </div>
+      <div class="booking-card" onclick="showReceipt({route: 'Chennai → Bangalore', date: '2025-12-10', time: '6:00 PM', seat: 'C3', price: 500})">
+        <h3>Chennai → Bangalore</h3>
+        <p>Date: 2025-12-10</p>
+        <p>Time: 6:00 PM</p>
+        <p>Seat: C3</p>
+        <p>Price: ₹500</p>
+      </div>
+    </div>
+    <a href="travel1.html" class="back-button">Back to Homepage</a>
+
+    <!-- Modal -->
+    <div id="receipt-modal" class="modal">
+      <div id="modal-content" class="modal-content">
+        <!-- Receipt content will be dynamically inserted here -->
+      </div>
+    </div>
+  </body>
+</html>

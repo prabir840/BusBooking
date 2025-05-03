@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c9f5f1);
+        color: #333;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      header h1 {
+        font-size: 28px;
+        color: #333;
+      }
+
+      .help-container {
+        max-width: 900px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .help-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .help-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .help-card i {
+        font-size: 40px;
+        color: #7acbdd;
+        margin-bottom: 15px;
+      }
+
+      .help-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .help-card p {
+        font-size: 16px;
+        color: #555;
+      }
+
+      .back-button {
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #7acbdd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        max-width: 200px;
+        text-align: center;
+      }
+
+      .back-button:hover {
+        background: #92b3c1;
+      }
+    </style>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>How Can We Help You?</h1>
+    </header>
+    <div class="help-container">
+      <div class="help-card">
+        <i class="fas fa-ticket-alt"></i>
+        <h3>Booking Issues</h3>
+        <p>Get help with booking tickets or cancellations.</p>
+      </div>
+      <div class="help-card">
+        <i class="fas fa-wallet"></i>
+        <h3>Wallet Queries</h3>
+        <p>Resolve issues related to wallet balance or transactions.</p>
+      </div>
+      <div class="help-card">
+        <i class="fas fa-bus"></i>
+        <h3>Bus Information</h3>
+        <p>Find details about bus routes, timings, and availability.</p>
+      </div>
+      <div class="help-card">
+        <i class="fas fa-user-shield"></i>
+        <h3>Safety Guidelines</h3>
+        <p>Learn about our safety measures for a secure journey.</p>
+      </div>
+      <div class="help-card">
+        <i class="fas fa-headset"></i>
+        <h3>Customer Support</h3>
+        <p>Contact our 24/7 support team for assistance.</p>
+      </div>
+    </div>
+    <a href="travel1.html" class="back-button">Back to Homepage</a>
+  </body>
+</html>
